@@ -1,0 +1,166 @@
+#car{
+    .l-head{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        box-shadow: 0 0.013333rem 0.08rem #ccc;
+        background: #fff;
+        >h1{
+            width: 70%;
+            height: 0.6rem;
+            line-height: 0.6rem;
+            font-size: 0.253333rem;
+            font-weight: normal;
+            color: #322d2d;
+        }
+        >i{
+            display: inline-block;
+            width: 15%;
+            line-height: 0.6rem;
+            font-size: 0.293333rem;
+            color: #454545;
+            cursor: pointer;
+        }
+    }
+    .l-car-box{
+        background: #fff;
+        margin: 0.6rem 0 1.466667rem 0;
+        .l-carlist{
+            padding-left: 0.16rem;
+            >li{
+                display:flex;
+                align-items: center;
+                padding: 0.133333rem 0 0.133333rem;
+                border-bottom: 0.013333rem solid #ececec;
+                position: relative;
+                .l-checkbox{
+                    width: 7.5%;
+                    .l-check{
+                        /*去除浏览器默认样式*/
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        /*自定义样式*/
+                        position: relative;
+                        display: inline-block;
+                        vertical-align: top;
+                        width: 0.266667rem;
+                        height: 0.266667rem;
+                        border: 1px solid #aaa;
+                        outline: none;
+                        cursor: pointer;
+                        /*设置为圆形，看起来是个单选框*/
+                        -webkit-border-radius: 0.266667rem;
+                        -moz-border-radius: 0.266667rem;
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+                    /*选中之后的样式*/
+                    .l-check:after{
+                        content: '';
+                        position: absolute;
+                        width: 0.16rem;
+                        height: 0.16rem;
+                        display: block;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        margin: auto;
+                        background: #f24730;
+                        -webkit-border-radius: 0.16rem;
+                        -moz-border-radius: 0.16rem;
+                        border-radius: 0.16rem;
+                        -webkit-transform: scale(0);
+                        -moz-transform: scale(0);
+                        transform: scale(0);
+                        /*增加一些动画*/
+                        -webkit-transition : all ease-in-out 300ms;
+                        -moz-transition : all ease-in-out 300ms;
+                        transition : all ease-in-out 300ms;
+                    }
+                    .l-check:checked:after{
+                        -webkit-transform: scale(1);
+                        -moz-transform: scale(1);
+                        transform: scale(1);
+                    }
+                }
+                .l-imgbox{
+                    >img{
+                        width: 1.28rem;
+                        height: 1.146667rem;
+                    }
+                }
+                .l-msgbox{
+                    margin-left: 4%;
+                    width: 58%;
+                    .l-title,.l-type{
+                        font-size: 0.213333rem;
+                        margin-top: 0.066667rem;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        padding-right: 0.4rem;
+                        color: #292c2e;
+                    }
+                    .l-type{
+                        font-size: 0.186667rem;
+                    }
+                    .l-l-msgbox-b{
+                        overflow: hidden;
+                        .l-pricebox{
+                            margin-top: 0.106667rem;
+                            font-size: 0.173333rem;
+                            color: #f24730;
+                            float: left;
+                            .l-price{
+                                font-size: 0.226667rem;
+                            }
+                        }
+                        .l-qtybox{
+                            float: right;
+                            padding-top: 0.08rem;
+                            .l-qty-less,.l-qty-more{
+                                float: left;
+                                width: 0.453333rem;
+                                height: 0.4rem;
+                                line-height: 0.333333rem;
+                                text-align: center;
+                                border: 0.013333rem solid #ececec;
+                                color: #6c6e74;
+                                background: #fff;
+                                font-size: 0.24rem;
+                                cursor: pointer;
+                            }
+                            .l-qty-more{
+                                line-height: 0.373333rem;
+                            }
+                            #l-qty{
+                                width: 0.666667rem;
+                                height: 0.4rem;
+                                float: left;
+                                border: 0 none;
+                                border-bottom: 0.013333rem solid #ececec;
+                                border-top: 0.013333rem solid #ececec;
+                                font-size: 0.226667rem;
+                                text-align: center;
+                                color: #292c2e;
+                            }
+                        }
+                    }
+                }
+                .l-del{
+                    position: absolute;
+                    font-size: 0.24rem;
+                    top: 0.213333rem;
+                    right: 0.16rem;
+                    color: #a8a8af;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
