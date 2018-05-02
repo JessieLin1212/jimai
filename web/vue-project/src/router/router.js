@@ -5,6 +5,7 @@ import indexComponent from '../components/home/index.vue'
 import listComponent from '../components/list/list.vue'
 import carComponent from '../components/car/car.vue'
 import myComponent from '../components/my/my.vue'
+import detailsComponent from '../components/details/details.vue'
 Vue.use(VueRouter);
 
 
@@ -29,6 +30,11 @@ const router = new VueRouter({
                path:'/my',
                name:'my',
                component:myComponent
+            },
+            {
+               path:'/details',
+               name:'details',
+               component:detailsComponent
             }
 
        ]

@@ -11,7 +11,6 @@
                 <li>
                     <div class="l-checkbox">
                         <input type="checkbox" class="l-check" />
-                        <label for="l-check"></label>
                     </div>
                     <div class="l-imgbox">
                         <img src="../../assets/l-img/l-carst1.png" alt="" />
@@ -36,7 +35,6 @@
                 <li>
                     <div class="l-checkbox">
                         <input type="checkbox" class="l-check" />
-                        <label for="l-check"></label>
                     </div>
                     <div class="l-imgbox">
                         <img src="../../assets/l-img/l-carst1.png" alt="" />
@@ -59,8 +57,35 @@
                     <i class="l-del iconfont icon-shanchu"></i>
                 </li>
             </ul>
-        </div>
 
+            <div class="l-paybox">
+                <div class="l-checkAllBox">
+                    <input type="checkbox" id="l-checkAll" class="l-check" />
+                    <label for="l-checkAll">全选</label>
+                </div>
+                <div class="l-totalbox">
+                    合计：
+                    <p class="l-total">
+                        <span class="l-totalPrice">56</span>
+                        元
+                    </p>
+                </div>
+                <button class="l-check-out">结算</button>
+            </div>
+            
+        </div>
+        
+        <div class="l-address">
+            <div class="l-hint-box">
+                <div class="l-hint-t">
+                    <p>提示</p>
+                    <p class="l-hint-msg">请添加收货地址！</p>
+                </div>
+                <div class="l-dtl-check">
+                    <span class="l-toLogin">确认</span>
+                </div>
+            </div>
+        </div>
         <footComponent></footComponent>
     </div>
 </template>
