@@ -2,7 +2,7 @@
 
     <div id="details">
         <header class="l-dtl-head">
-            <router-link to="" class="iconfont icon-xiangzuojiantou"></router-link>
+            <router-link to="/" class="l-back iconfont icon-xiangzuojiantou"></router-link>
             <ul class="l-dtl-tab">
                 <li>
                     <router-link to="" class="l-tab-active">商品</router-link>
@@ -14,16 +14,16 @@
                     <router-link to="">评价</router-link>
                 </li>
             </ul>
-            <router-link to="" class="iconfont icon-gouwuche"></router-link>
+            <router-link to="/car" class="iconfont icon-gouwuche"></router-link>
         </header>
         <div class="l-dtlBox">
             <div class="l-imgBox">
                 <slider :pages="pages" :sliderinit="sliderinit"></slider>
             </div>
             <div class="l-msgBox">
-                <p class="l-dtl-title">鲁班、美纹纸胶带2寸、3寸、5寸/30米</p>
+                <p class="l-dtl-title">{{dataset[0].proname}}</p>
                 <p class="l-saleBox">月销：<span class="l-sale">2</span>笔</p>
-                <p class="l-priceBox">￥<span class="l-price">80.00</span></p>
+                <p class="l-priceBox">￥<span class="l-price">{{dataset[0].price}}</span></p>
             </div>
             <div class="l-typeBox">
                 <div class="l-type" @click="choseType">
@@ -49,26 +49,25 @@
                         <div class="l-chose">
                             <p class="l-check-price">
                                 ￥
-                                <span class="l-price-txt">80.00</span>
+                                <span class="l-price-txt">{{dataset[0].price}}</span>
                                 <i class="l-close" @click="close">&times;</i>
                             </p>
                             <div class="l-chose-type">
                                 <p class="">规格分类</p>
                                 <div class="l-all-type">
-                                    <span>2x30m/72个*箱</span>
-                                    <span>3x30m/60个*箱</span>
-                                    <span>5x30m/27个*箱</span>
+                                    <span @click="types" ref="l_type_c">{{dataset[0].guige}}</span>
                                 </div>
                             </div>
                             <div class="l-form">
                                 <span>购买数量</span>
                                 <div class="l-qty-box">
                                     <button @click="less" ref="l_qty_less" class="l-qty-btn l-qty-less">-</button>
-                                    <input ref="l_qty" class="l-qty" :value="qty" type="text" />
+                                    <input ref="l_qty" class="l-qty" v-model="qty" type="text" />
                                     <button @click="more" ref="l_qty_more" class="l-qty-btn l-qty-more">+</button>
                                 </div>
                             </div>
-                            <button class="l-last-check">确认</button>
+                            <div class="l-no-chose">请选择商品规格</div>
+                            <button @click="addToCar" class="l-last-check">确认</button>
                         </div>
                     </transition>
                 </div>
@@ -109,6 +108,8 @@
     import './details.scss'
     import slider from 'vue-concise-slider'// 引入slider组件
     import $ from 'jquery'
+    import router from '../../router/router.js'
+    import http from '../../utils/httpClient.js'
 
     export default{
         components: {
@@ -117,20 +118,24 @@
         data(){
             return {
                 show:false,
+                // objid:'5ad88f369f398d067cdcf5a1',
+                dataset:[],
                 qty:1,
+                url:[],
+                username:'',
                 pages:[
                      {
-                        title: '1',
-                        style:{
-                            background:"url(/src/assets/l-img/dtl-img01.jpg)",
-                        }
-                    },
-                    {
                         title: '2',
                         style:{
-                            background:"url(/src/assets/l-img/dtl-img02.jpg)",
+                            background: 'url(/src/assets/l-img/dtl-img01.jpg)'
                         }
-                    }
+                    },
+                     {
+                        title: '3',
+                        style:{
+                            background: 'url(/src/assets/l-img/dtl-img02.jpg)'
+                        }
+                    },
                 ],
                 //滑动配置[obj]
                 sliderinit: {
@@ -164,21 +169,81 @@
                 this.qty = this.$refs.l_qty.value;
                 this.qty++;
             },
+            types(){
+
+                $('.l-all-type').children().addClass('l-type-active');
+                $('.l-no-chose').css('display','none');
+            },
+            addToCar(){
+
+                let username = this.username;
+                let $types = $('.l-all-type').children();
+                // console.log($types);
+                
+                if(!$types.hasClass('l-type-active')){
+
+                    $('.l-no-chose').css('display','block');
+
+                }else if(username){
+                    
+                    $('.l-un-login').css('display','block');
+                    $('.l-toLogin').on('click',function(){
+                        router.push({path:'/my'})
+                    })
+                    // console.log(this);
+                }else if(!username && $types.hasClass('l-type-active')){
+
+                    let $qty = $('.l-qty').val();
+                    let $title = $('.l-dtl-title').text();
+                    let $price = $('.l-price-txt').text();
+                    let $type = $('.l-type-active').text();
+                    let $url = this.url;
+                    // console.log($qty);
+                    // http.get('addcar',{username:username,qty:$qty,title:$title,price:$price,type:$type,url:$url}).then((res)=>{
+
+                    //     $('.l-toCar').on('click',function(){
+                             // $('.l-add-success').css('display','block');
+                    //          router.push({path:'/car'})
+                    //     });
+                    //     $('.l-hint-no').on('click',function(){
+                    //         $('.l-add-success').css('display','none');
+                    //     })
+                    // })
+                   
+                }
+                
+            }
         },
         mounted(){
 
-            let $types = $('.l-all-type').children();
-            $types.on('click',function(){
-                $(this).addClass('l-type-active').siblings().removeClass('l-type-active');
-                // console.log($(this));
-            });
-
-            $('.l-last-check').on('click',function(){
-                console.log($(this));
-                this.$router.push({path:'car'})
-            });
+            this.username = window.sessionStorage.getItem('username');
             
-        }
+            // 5ad88f369f398d067cdcf5a1
+            // 5ae93512cca24dc21b34140f
+
+            let sid = this.$route.params.sid;
+            console.log(sid);
+            http.get('/detail',{sid}).then((res)=>{
+                // console.log(res);
+                this.dataset = res.data.data;
+                // console.log(this.dataset);
+                this.url = res.data.data[0].img[0];
+                // this.pages[0].style.background = 'url(' + this.url[0] + ')';
+                // this.pages[1].style.background = 'url(' + this.url[1] + ')';
+                // console.log(this.pages[0].style.background);
+                console.log(this.url);
+                this.pages.unshift(
+                    {
+                        title: '1',
+                        style:{
+                            background:'url('+this.url+')'
+                        }
+                    })
+                 
+            })
+            
+        },
+        
     }
 
 

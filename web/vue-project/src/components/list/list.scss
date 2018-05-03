@@ -1,0 +1,138 @@
+html,body {
+    height: 100%;
+    #list {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .w-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            overflow: hidden;
+            padding: 0.106667rem 0;
+            padding-right: 0;
+            z-index: 1;
+            ul {
+                height: 0.613333rem;
+                display: flex;
+                justify-content: space-between;
+                li:nth-child(1),li:nth-child(3) {
+                    width: 12%;
+                    height: 0.4rem;
+                    line-height: 0.4rem;
+                    text-align: center;
+                    margin-top: 0.066667rem;
+                    i {
+                        font-size: 20px;
+                        &:hover{ color: #f24730;}
+                    }
+
+                }
+                li:nth-child(2) {
+                    position: relative;
+                    width: 78%;
+                    input {
+                        width: 100%;
+                        height: 0.4rem;
+                        border-radius: 0.333333rem;
+                        padding: 0 0.466667rem;
+                        background: #ccc;
+                        font-size: 0.173333rem;
+                        border: 0;
+                    }
+                    i {
+                        position: absolute;
+                        top: 0.133333rem;
+                        left: 0.16rem;
+                        font-size: 0.266667rem;
+                    }
+                }
+            }
+        }
+        .w-tab {
+            flex: 1;
+            position: relative;
+            background: #e5e8eb;
+            .w-menus {
+                position: fixed;
+                top: 0.826667rem;
+                left: 0;
+                ul{
+                    height: 100%;
+                    width: 1.413333rem;
+                    li {
+                        height: 0.6rem;width: 1.413333rem;
+                        border-top: 1px solid #f0f1f1;
+                        background: #fff;
+                        line-height: 0.6rem;
+                        text-align: center;
+                        font-size: 16px;
+                        a {
+                            color: #292c2e;
+                            text-decoration: none;
+                        }
+                        .active {
+                            border-left: 3px solid #000;
+                        }
+                    }
+                    li:nth-child(1) {
+                        border-top: 0;
+                    }
+                    li:hover {
+                        border-left: 3px solid #f00;
+                        background: #000;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        .w-body{
+            position: fixed;
+            top: 0.826667rem;
+            left: 1.413333rem;
+            right: 0;
+            bottom: 0;
+            box-sizing: border-box;
+            border-right: 1px solid #f00; 
+            border-bottom: 1px solid #f00; 
+            padding: 10px 2.6%;
+            overflow-x: hidden;
+            ul {
+                overflow: hidden;
+                li {
+                    width: 1.533333rem;
+                    float: left;
+                    text-align: center;
+                    margin-right: 0.106667rem;
+                    img {
+                        width: 1.533333rem;
+                        height: 1.533333rem;
+                    }
+                    .des {
+                        padding: 0 10px;
+                        color: #292c2e;
+                        font-size: 16px;
+                        margin-top: 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .price::before{
+                        content: "￥";
+                    }
+                    .price {
+                        font-size: 16px;
+                        color: #f24730;
+                    }
+                }
+                li:last-child{
+                    margin-bottom: 0.666667rem;
+                }
+            }
+        }
+    }
+    
+}

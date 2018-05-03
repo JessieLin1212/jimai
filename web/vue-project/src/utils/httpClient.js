@@ -2,7 +2,7 @@ import axios from 'axios'
 import qs from 'qs'
 
 
-// const _Url = 'http://10.3.136.222:8080';
+const _Url = 'http://10.3.133.93:88';
 
 
 function getUrl(url){

@@ -3,7 +3,7 @@
         <router-link to="/">
             <p ref="index"><i class="iconfont icon-shouye "></i><span>首页</span></p>
         </router-link>
-         <router-link to="/list">
+         <router-link to="/list/elec">
             <p ref="list"><i class="iconfont icon-fenlei-xuanzhong j-footfl"></i><span>分类</span></p>
          </router-link>
          <router-link to="/car">
@@ -24,7 +24,7 @@
                     // console.log(this.$refs.index);
                     this.$refs.index.classList.add('active');
 
-                }else if(this.$router.history.current.path=='/list'){
+                }else if(this.$router.history.current.path=='/list/elec'){
                      this.$refs.list.classList.add('active');
                 }else if(this.$router.history.current.path=='/car'){
                      this.$refs.car.classList.add('active');
