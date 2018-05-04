@@ -118,7 +118,6 @@
         data(){
             return {
                 show:false,
-                // objid:'5ad88f369f398d067cdcf5a1',
                 dataset:[],
                 qty:1,
                 url:[],
@@ -135,7 +134,7 @@
                         style:{
                             background: 'url(/src/assets/l-img/dtl-img02.jpg)'
                         }
-                    },
+                    }
                 ],
                 //滑动配置[obj]
                 sliderinit: {
@@ -184,14 +183,14 @@
 
                     $('.l-no-chose').css('display','block');
 
-                }else if(username){
+                }else if(!username){
                     
                     $('.l-un-login').css('display','block');
                     $('.l-toLogin').on('click',function(){
-                        router.push({path:'/my'})
+                        router.push({path:'/login'})
                     })
                     // console.log(this);
-                }else if(!username && $types.hasClass('l-type-active')){
+                }else if(username && $types.hasClass('l-type-active')){
 
                     let $qty = $('.l-qty').val();
                     let $title = $('.l-dtl-title').text();
@@ -199,16 +198,23 @@
                     let $type = $('.l-type-active').text();
                     let $url = this.url;
                     // console.log($qty);
-                    // http.get('addcar',{username:username,qty:$qty,title:$title,price:$price,type:$type,url:$url}).then((res)=>{
-
-                    //     $('.l-toCar').on('click',function(){
-                             // $('.l-add-success').css('display','block');
-                    //          router.push({path:'/car'})
-                    //     });
-                    //     $('.l-hint-no').on('click',function(){
-                    //         $('.l-add-success').css('display','none');
-                    //     })
-                    // })
+                    // console.log($title);
+                    // console.log($price);
+                    // console.log($type);
+                    // console.log($url);
+                    // console.log(this.username);
+                    http.post('addcar',{username:this.username,qty:$qty,proname:$title,price:$price,guige:$type,img:$url}).then((res)=>{
+                        console.log(666);
+                        console.log(res);
+                        $('.l-add-success').css('display','block');
+                        $('.l-toCar').on('click',function(){
+                             
+                             router.push({path:'/car'})
+                        });
+                        $('.l-hint-no').on('click',function(){
+                            $('.l-add-success').css('display','none');
+                        })
+                    })
                    
                 }
                 
@@ -216,14 +222,11 @@
         },
         mounted(){
 
-            this.username = window.sessionStorage.getItem('username');
+            this.username = window.sessionStorage.getItem('token');
             
-            // 5ad88f369f398d067cdcf5a1
-            // 5ae93512cca24dc21b34140f
-
             let sid = this.$route.params.sid;
             console.log(sid);
-            http.get('/detail',{sid}).then((res)=>{
+            http.get('detail',{sid}).then((res)=>{
                 // console.log(res);
                 this.dataset = res.data.data;
                 // console.log(this.dataset);
@@ -232,13 +235,12 @@
                 // this.pages[1].style.background = 'url(' + this.url[1] + ')';
                 // console.log(this.pages[0].style.background);
                 console.log(this.url);
-                this.pages.unshift(
-                    {
-                        title: '1',
-                        style:{
-                            background:'url('+this.url+')'
-                        }
-                    })
+                this.pages.unshift({
+                    title: '1',
+                    style:{
+                        background:'url('  + this.url +')'
+                    }
+                })
                  
             })
             

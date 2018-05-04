@@ -8,36 +8,36 @@
         
         <div class="l-car-box">
             <ul class="l-carlist">
-                <li v-for="(obj,idx) in this.dataset" :data-id="obj.objid" :key="idx">
+                <li v-for="(obj,idx) in this.dataset" :data-id="obj._id" :key="idx">
                     <div class="l-checkbox">
-                        <input v-model="checkAll" type="checkbox" class="l-check" />
+                        <input type="checkbox" class="l-check" />
                     </div>
                     <div class="l-imgbox">
-                        <img :src="obj.url" alt="" />
+                        <img :src="obj.img" alt="" />
                     </div>
                     <div class="l-msgbox">
-                        <p class="l-title">{{obj.title}}</p>
-                        <p class="l-type">{{obj.type}}</p>
+                        <p class="l-title">{{obj.proname}}</p>
+                        <p class="l-type">{{obj.guige}}</p>
                         <div class="l-l-msgbox-b">
                             <p class="l-pricebox">
                                 ￥
-                                <span class="l-price">{{obj.qty}}</span>
+                                <span class="l-price">{{obj.price}}</span>
                             </p>
                             <div class="l-qtybox">
-                                <button class="l-qty-less" ref="l_qty_less">-</button>
-                                <input id="l-qty" type="text" v-model="obj.qty" />
-                                <button class="l-qty-more" ref="l_qty_more">+</button>
+                                <button @click="less" class="l-qty-less" ref="l_qty_less">-</button>
+                                <input id="l-qty" type="text" :value="obj.qty" />
+                                <button @click="more" class="l-qty-more" ref="l_qty_more">+</button>
                             </div>
                         </div>
                     </div>
-                    <i class="l-del iconfont icon-shanchu"></i>
+                    <i @click="del" class="l-del iconfont icon-shanchu"></i>
                 </li>
                 
             </ul>
 
             <div class="l-paybox">
                 <div class="l-checkAllBox">
-                    <input v-model="checkAll" @click="checkedAll" type="checkbox" id="l-checkAll" class="l-check" />
+                    <input type="checkbox" id="l-checkAll" class="l-check" />
                     <label for="l-checkAll">全选</label>
                 </div>
                 <div class="l-totalbox">
@@ -84,41 +84,56 @@
             return {
                 totalprice:0,
                 dataset:[
-                    {objid:'aaa',url:'/src/assets/l-img/l-carst1.png',title:'公牛LED球泡E14/E27螺口灯头暖冷白光灯泡',type:'65KE27/3W',price:'6',qty:3},
-                    {objid:'bbb',url:'/src/assets/l-img/dtl-img01.jpg',title:'鲁班、美纹纸胶带2寸、3寸、5寸/30米',type:'2x30m/72个*箱',price:'80',qty:2},
-                    {objid:'ccc',url:'/src/assets/l-img/l-carst1.png',title:'公牛LED球泡E14/E27螺口灯头暖冷白光灯泡',type:'65KE27/3W',price:'6',qty:5},
-                    {objid:'ddd',url:'/src/assets/l-img/dtl-img01.jpg',title:'鲁班、美纹纸胶带2寸、3寸、5寸/30米',type:'2x30m/72个*箱',price:'80',qty:1},
+                    // {objid:'aaa',url:'/src/assets/l-img/l-carst1.png',title:'公牛LED球泡E14/E27螺口灯头暖冷白光灯泡',type:'65KE27/3W',price:'6',qty:3},
+                    // {objid:'bbb',url:'/src/assets/l-img/dtl-img01.jpg',title:'鲁班、美纹纸胶带2寸、3寸、5寸/30米',type:'2x30m/72个*箱',price:'80',qty:2},
+                    // {objid:'ccc',url:'/src/assets/l-img/l-carst1.png',title:'公牛LED球泡E14/E27螺口灯头暖冷白光灯泡',type:'65KE27/3W',price:'6',qty:5},
+                    // {objid:'ddd',url:'/src/assets/l-img/dtl-img01.jpg',title:'鲁班、美纹纸胶带2寸、3寸、5寸/30米',type:'2x30m/72个*箱',price:'80',qty:1},
                 ],
-                username:'',
                 checkModel:[],
                 checkAll:false,
             }
         },
-        // watch:{
-        //     checkModel:{
-        //         handler(){
-        //             if(this.checkModel.length == this.dataset.length){
-        //                 this.checkAll = true;
-        //             }else{
-        //                 this.checkAll = false;
-        //             }
-        //         },
-        //         deep:true
-        //     }
-        // },
         methods:{
 
-            checkedAll(){
+            less(e){
+                let qty = e.target.nextElementSibling.value;
+                qty--;
+                if(qty<=1){
+                    qty = 1
+                }
+                let username = window.sessionStorage.getItem('token');
+                e.target.nextElementSibling.value = qty;
+                // console.log(e.target);
+                // console.log(qty);
 
-                let $checkboxs = $('.l-carlist').find(':checkbox');
-                console.log($checkboxs);
-                // $checkboxs.prop('checked',this.checked);
+            },
+            more(e){
+                let qty = e.target.previousElementSibling.value;
+                qty++;
+                e.target.previousElementSibling.value = qty;
+                // console.log(e.target);
+                // console.log(qty);
+                let username = window.sessionStorage.getItem('token');
+                let proname = e.target.parentNode.parentNode.parentNode.firstElementChild.innerText;
+                let objid = e.target.parentNode.parentNode.parentNode.parentNode.dataset.id;
+                // console.log(username);
+                // console.log(proname);
+                console.log(objid);
 
-                // let $checkeds = $checkboxs.filter(':checked');
+                http.post('upqty',{qty:qty,username:username,proname:proname}).then((res)=>{
+                    console.log(666);
+                    // console.log(res);
+                    // this.dataset = res.data.data;
+                    // console.log(this.dataset);
 
-                // $('#l-checkAll').prop('checked',$checkboxs.length===$checkeds.length);
+                })
 
-                this.checkAll = !this.checkAll
+            },
+            del(e){
+                let current = e.target.parentNode;
+                
+                console.log(current);
+
             },
 
             // checkedAll(item){
@@ -138,40 +153,22 @@
         },
         mounted(){
 
-            this.username = window.sessionStorage.getItem('username');
-            if(this.username != ''){
-                // http.get('car','{username:this.username}').then((res)=>{
+            let username = window.sessionStorage.getItem('token');
+            console.log(username);
+            if(username){
+                
+                http.get('getcar',{username:username}).then((res)=>{
+                    console.log(666);
+                    // console.log(res);
+                    this.dataset = res.data.data;
+                    console.log(this.dataset);
 
-                // })
+                })
             }
             
 
-            $('.l-qty-less').on('click',function(){
-                let $qty = $(this).next().val();
-                // console.log(this);
-                $qty--;
-                if($qty<=1){
-                    $qty = 1
-                }
-                $(this).next().val($qty);
-                console.log($qty);
-                
-            });
-
-            $('.l-qty-more').on('click',function(){
-                let $qty = $(this).prev().val();
-                $qty++;
-                $(this).prev().val($qty);
-                console.log($qty);
-            });
-
-            $('.l-del').on('click',function(){
-                console.log($(this));
-            })
-
         }
     }
-    
 
 
 </script>

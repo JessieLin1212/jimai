@@ -4,7 +4,7 @@ html, body{
         display:flex;
         flex-direction: column;
         height:100%;
-        overflow-x: hidden;
+        // overflow-x: hidden;
         #w_header{
             position:fixed;
             top: 0;
@@ -55,7 +55,7 @@ html, body{
             width: 100%;
             background: #fff;
             padding: 13px;
-            overflow-x: hidden;
+            // overflow-x: hidden;
             .w-h3 {
                 width: 0.96rem;
                 height: 0.333333rem;
@@ -89,11 +89,10 @@ html, body{
         }
         #w-main {
             flex: 1;
-            overflow-x: hidden; 
             margin-bottom: 0.666667rem;
             .w-main-ul {
                 display: flex;
-                flex-wrap:wrap;
+                flex-wrap: wrap;
                 align-items:flex-start;
                 .w-main-li {
                     width:49%;
@@ -126,6 +125,19 @@ html, body{
                     }
                 }
                 li:nth-child(2n-1){margin-right: 2%;}
+            }
+            .toTop {
+                position: fixed;
+                bottom: 1.333333rem;
+                right: 0.266667rem;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                background: #609ddc;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 14px;
+                color: #fff;
             }
             .copy {
                 line-height: 0.666667rem;

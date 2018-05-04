@@ -53,16 +53,16 @@
 			},
 			startSearch:function(){
 				if(this.sValue){
-					this.api = 'http://10.3.133.164:8080/dimInsert?' + this.sValue;
+					this.api = 'goods?' + this.sValue;
 				}else{
-					this.api = 'http://10.3.133.164:8080/dimInsert?' + this.sPaceholder;
+					this.api = 'goods?' + this.sPaceholder;
 				}
 				var type;
 				http.get(this.api,{}).then((res)=>{
 					console.log(res);
-					type = res.data.data[0].smallType;
+					type = res.data.data[0].fenlei;
 					console.log(type);
-					this.$router.push({name:'list',params:{type:type}});
+					this.$router.push({name:'list',params:{fenlei:type}});
 	            });
 			}
 		},

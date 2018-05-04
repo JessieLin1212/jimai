@@ -2,11 +2,11 @@ import axios from 'axios'
 import qs from 'qs'
 
 
-const _Url = 'http://10.3.133.93:88';
+const _Url = 'http://10.3.133.93:88/';
 
 
 function getUrl(url){
-   console.log(url);
+//    console.log(url);
    //判断传入的url路径是否是http开头
    if(url.startsWith("http") || url.startsWith("https")){
        return url;
@@ -20,7 +20,7 @@ const Http = {
    get:(url,query)=> new Promise((resolve,reject)=>{
        //new Promise 是为进行在vue store里面进行异步传值
        var path = getUrl(url);
-       console.log('get222',path,query);
+       // console.log('get222',path,query);
        //get请求
        axios.get(path,{params:query}).then((res1,error)=>{
            if(res1){
@@ -35,13 +35,14 @@ const Http = {
        //new Promise 是为进行在vue store里面进行异步传值
        var path = getUrl(url);
        //post请求
-       console.log('post',url,query);
+    //    console.log('post',url,query);
        axios({
            url:path,
            method:'post',
            data: qs.stringify(query),
            headers:{
                'Content-Type': 'application/x-www-form-urlencoded'
+
            }
        }).then((res1,error)=>{
 
@@ -53,6 +54,38 @@ const Http = {
 
        })
    }),
+//    post:(url,query)=> new Promise((resolve,reject)=>{
+//     //new Promise 是为进行在vue store里面进行异步传值
+//     var path = getUrl(url);
+//     //post请求
+//  //    console.log('post',url,query);
+//     axios({
+//         url:path,
+//         method:'post',
+//         data: qs.stringify(query),
+//         headers:{
+//             'Content-Type': 'application/x-www-form-urlencoded',
+//             "auth": window.localStorage.getItem('token')
+//         },
+//         transformRequest: [function (data) {
+//             let ret = ''
+//             for (let it in data) {
+//               ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+//             }
+//             return ret
+//         }], 
+
+//     }).then(res => {
+//         if(!res.data.status && res.data.message == "unauth"){
+//             router.push({name: 'login'});
+//             return false;
+//         }				
+//         resolve(res.data)
+//     }).catch(error => {
+        
+//         reject(error)
+//     })         
+// }),
    poststr(_url, _params){
         var url = _url && _url.startsWith('http') ? _url : `${baseUrl}/${_url}`;
         return new Promise((resolve, reject) => {

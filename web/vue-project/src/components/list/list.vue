@@ -12,14 +12,15 @@
                 <li><i class="iconfont icon-liaotian"></i></li>
             </ul>
         </header>
-        <div class="w-tab">
+        <!-- <div class="w-tab"> -->
             <div class="w-menus">
                 <menus></menus>
             </div>
-        </div>
+            
+        <!-- </div> -->
         <div class="w-body">
-            <router-view></router-view>
-        </div>
+                <router-view></router-view>
+            </div>
         <footComponent></footComponent>
         <spinner v-if="show"></spinner>
     </div>
@@ -47,8 +48,7 @@
         mounted(){
             this.show = true;
 
-            http.get('/goods').then((res) => {
-                console.log(res)
+            http.get('goods').then((res) => {
                 this.dataset = res.data.data
             })
 
