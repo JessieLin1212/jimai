@@ -193,17 +193,19 @@
                 }else if(username && $types.hasClass('l-type-active')){
 
                     let $qty = $('.l-qty').val();
-                    let $title = $('.l-dtl-title').text();
-                    let $price = $('.l-price-txt').text();
-                    let $type = $('.l-type-active').text();
-                    let $url = this.url;
+                    // let $title = $('.l-dtl-title').text();
+                    // let $price = $('.l-price-txt').text();
+                    // let $type = $('.l-type-active').text();
+                    // let $url = this.url;
+                    let sid = this.$route.params.sid;
                     // console.log($qty);
                     // console.log($title);
                     // console.log($price);
                     // console.log($type);
                     // console.log($url);
+                    // console.log(sid);
                     // console.log(this.username);
-                    http.post('addcar',{username:this.username,qty:$qty,proname:$title,price:$price,guige:$type,img:$url}).then((res)=>{
+                    http.post('addcar',{username:this.username,qty:$qty,sid:sid}).then((res)=>{
                         console.log(666);
                         console.log(res);
                         $('.l-add-success').css('display','block');
@@ -215,6 +217,19 @@
                             $('.l-add-success').css('display','none');
                         })
                     })
+
+                    // http.post('addcar',{username:this.username,qty:$qty,proname:$title,price:$price,guige:$type,img:$url}).then((res)=>{
+                    //     console.log(666);
+                    //     console.log(res);
+                    //     $('.l-add-success').css('display','block');
+                    //     $('.l-toCar').on('click',function(){
+                             
+                    //          router.push({path:'/car'})
+                    //     });
+                    //     $('.l-hint-no').on('click',function(){
+                    //         $('.l-add-success').css('display','none');
+                    //     })
+                    // })
                    
                 }
                 

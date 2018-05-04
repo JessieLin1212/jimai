@@ -42,7 +42,7 @@
                     this.tishi = '你输入的手机号码有误';
                     return false ;
                 }
-                if(this.yzm !== this.code){
+                if(this.yzm !== this.code || this.yzm == '点击获取验证码'){
                     
                     this.tishi = '你输入的验证码有误';
                     return false ;
@@ -72,6 +72,9 @@
                     this.code+=num;
                 }
             }
+        },
+        mounted(){
+            window.sessionStorage.removeItem('token')
         }
 
     }

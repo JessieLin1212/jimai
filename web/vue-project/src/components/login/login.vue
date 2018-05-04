@@ -67,6 +67,9 @@
                     }
                 })
             }
+        },
+        mounted(){
+            window.sessionStorage.removeItem('token')
         }
     }
     
