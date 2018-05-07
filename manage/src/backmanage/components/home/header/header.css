@@ -1,0 +1,20 @@
+.head_c{
+    padding:5px;
+    background-color:grey;
+    position: relative;
+}
+.head_c .right_show{
+    position:absolute;
+    right:10px;
+    top:10px;
+}
+
+.head_c .right_show a{
+    color:white;
+    font-size:24px;
+}
+.head_c h1{
+    width:250px;
+    color:white;
+    margin: 0;
+}

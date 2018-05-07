@@ -1,0 +1,38 @@
+.login_box{
+    width:600px;
+    height:300px;
+    border-radius: 10px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border:1px solid #ccc;
+}
+.login_box h2{
+    margin-top:10px;
+}
+
+.login_box input{
+    width: 260px;
+    background-color: white;
+    height:40px;
+    margin-top: 15px;
+    border-radius: 5px;
+
+}
+.logon_box p{
+    position:relative;
+}
+.login_box .usn{
+    position:absolute;
+    left:100px;
+    top:77px;
+}
+.login_box .pdn{
+    position:absolute;
+    left:106px;
+    top:152px;
+}
+
+

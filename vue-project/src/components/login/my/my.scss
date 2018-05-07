@@ -1,0 +1,95 @@
+#j-my{
+    background-color: #fff;
+    display:flex;
+    flex-direction:column;
+    .j-my_t{
+        height:.6rem*2;
+        font-size: .24rem*2;
+        line-height:.6rem*2;
+        text-align: center;
+        color:#322d2d;
+        border-bottom:.026667rem*2 solid #ccc;
+        .j-fh{
+            color:#322d2d;
+            float:right;
+            margin-right:.133333rem*2;
+            i{
+                font-size: .24rem*2;
+            }
+        }
+    }
+    .j-mymain{
+        a{color:#322d2d;}
+        .j-myxx{
+            height: .8rem*2;
+            margin:.133333rem*2;
+            text-align: center;
+            line-height: .8rem*2;
+           .j-dl{font-size: .533333rem;}
+            .wod{
+                font-size: .666667rem*2;
+                float:left;
+            }
+            .myr{
+                float:right;
+                font-size: .266667rem*2;
+            }
+        }
+        .j-ys{
+            height: .133333rem*2;
+            background-color: #e5e8eb;
+        }
+        .j-dd{
+            padding:0 .08rem*2;
+            height: .533333rem*2;
+            line-height: .533333rem*2;
+            font-size: .213333rem*2;
+            border-bottom:.013333rem*2 solid #ccc;
+            span{
+                float:right;
+                font-size: .186667rem*2;
+            }
+        }
+        .j-fh{
+            padding:0 .08rem*2;
+            display:flex;
+            border-bottom:.013333rem*2 solid #ccc;
+            width: 100%;
+            p{
+                margin-top:.08rem*2;
+                width: 25%;
+                text-align: center;
+                i{font-size: .4rem*2; color:#f24730;}
+                span{font-size: .16rem*2;}
+            }
+        }
+        .j-xia{
+            padding:0 .08rem*2;
+            a{color:#3e3e3e;}
+           
+            p{
+                // display: flex;
+                // align-content: center;
+                // justify-content: center;
+                // padding:.133333rem*2 0;
+                border-bottom:.013333rem*2 solid #ccc;
+                line-height: 101px;
+                i{font-size: .4rem*2;vertical-align: middle;}
+                span{font-size: 30px; margin:0rem .133333rem*2;vertical-align: middle;}
+                .j-xiay{
+                    font-size: 30px;
+                    float:right;
+                }
+            }
+            .j-login{
+                
+                text-align: center;background-color:red;margin-top:.08rem; border-radius: .066667rem*2;
+                // height: .533333rem*2;
+                line-height:.533333rem*2 ;
+                font-size: 30px;
+                color:#fff;
+               
+            }
+        }
+    }
+}

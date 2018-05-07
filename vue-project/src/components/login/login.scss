@@ -1,0 +1,106 @@
+#j-login{
+    background-color: #fff;
+    display:flex;
+    flex-direction:column;
+    .j-login_t{
+        height:.6rem*2;
+        font-size: .24rem*2;
+        line-height:.6rem*2;
+        text-align: center;
+        color:#322d2d;
+        border-bottom:.026667rem*2 solid #ccc;
+        .j-fh{
+            color:#322d2d;
+            float:left;
+            i{
+                font-size: .24rem*2;
+            }
+        }
+    }
+    .j-login-main{
+        padding:0 .4rem*2;
+        .j-dl{
+            input{  
+                font-size: .4rem;
+                height: .6rem*2;
+                width:100%;
+                border:none;
+                border-bottom:.013333rem*2 solid #ddd;
+
+
+            }
+        }
+        .j-btn{
+            margin-top:.4rem*2;
+            text-align: center;
+            input{
+                font-size: .4rem;
+                width: 100%;
+                height:.533333rem*2;;
+                color:#fff;
+                background-color:red;
+                border:none;
+                border-radius:.066667rem*2;
+            }
+       }
+       .j-lj{
+           font-size: .186667rem*2;
+            margin:.133333rem*2 0;
+           .j-fl{float:left;color:blue;}
+           .j-fr{float:right;color:blue;}
+       }
+       .j-yz{
+            margin-top:1.333333rem;
+            width: 4.2rem*2;
+            height: .6rem;
+            border:none;
+            text-align: center;
+            border-radius:.066667rem*2;
+            color:#fff;
+            // visibility: hidden;
+            // display: none;
+            // position: fixed;
+            font-size: 30px;
+            // bottom:4.933333rem*2;
+            // left:.4rem*2;
+
+       }
+       .j-dsf{
+        width: 3.333333rem*2;
+        margin: 0 auto;
+        margin-top: 3.6rem;
+        border-top: .013333rem*2 solid #bfc6cc;
+        .j-dsfs{
+            text-align: center;
+            height: 0;
+            h1{
+                display: inline-block;
+                padding: 0 .16rem*2;
+                background: #fff;
+                font-size: .173333rem*2;
+                color: #737678;
+                position: relative;
+                top: -67px;
+            }
+        }
+        .j-qq{
+            .j-w,.j-q{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin:.4rem*2;
+                width: .666667rem*2;
+                height: .666667rem*2;
+                border:.013333rem*2 solid #ccc;
+                border-radius: 50%;
+                // text-align: center;
+                // line-height: .666667rem*2;
+                float:left;
+                i{font-size: 50px;}
+            }
+            .j-w{background-color:#58bc58;color:#fff;}
+            .j-q{background-color:#87CEEB;color:#fff;}
+        }
+       }
+    } 
+}

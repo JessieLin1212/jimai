@@ -1,0 +1,45 @@
+.j-Address{
+    .j-Address_t{
+        height:.6rem*2;
+        font-size: .24rem*2;
+        line-height:.6rem*2;
+        text-align: center;
+        color:#322d2d;
+        border-bottom:.026667rem*2 solid #ccc;
+        span{float:right;padding-right:.08rem*2;}
+        .j-fh{
+            color:#322d2d;
+            float:left;
+            margin-right:.133333rem*2;
+            i{
+                font-size: .24rem*2;
+            }
+        }
+    }
+    .j-main{
+        div{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            // margin-top:6px;
+            padding:0 .08rem*2;
+            height: .6rem*2;
+            background-color:#fff;
+            border-bottom:.013333rem*2 solid #ccc;
+            h1{font-size: .24rem*2; float:left;line-height: .6rem*2;}
+            input{border:none;float:right;height: .56rem*2;font-size: 30px;padding-left:50px;width: 580px;}
+            span{font-size: .213333rem*2; float:right;line-height: .6rem*2;}
+        }
+        .j-city{
+            h1{font-size: 30px;}
+            select{
+              
+                width: 20%;
+                height: 60px;
+                margin-left:.133333rem*2;
+                font-size: 30px;
+                option{font-size: 12px;}
+            }
+        }
+    }
+}

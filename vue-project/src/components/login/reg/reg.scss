@@ -1,0 +1,56 @@
+#j-reg{
+    background-color: #fff;
+    display:flex;
+    flex-direction:column;
+    .j-reg_t{
+        height:.6rem*2;
+        font-size: .24rem*2;
+        line-height:.6rem*2;
+        text-align: center;
+        color:#322d2d;
+        border-bottom:.026667rem*2 solid #ccc;
+        .j-fh{
+            color:#322d2d;
+            float:left;
+            i{
+                font-size: .24rem*2;
+            }
+        }
+    }
+    .j-reg-main{
+        padding:0 .4rem*2;
+        input{
+            font-size: .4rem;
+            height: .6rem*2;
+            width:100%;
+            border:none;
+            border-bottom:.013333rem*2 solid #ddd;
+        }
+        .j-hqyz{
+            font-size: .186667rem*2;
+            position: absolute;
+            top:1.4rem*2;
+            right:.4rem*2;
+            a{color:#87CEEB;}
+        }
+        .j-ty{
+            margin:.133333rem*2 0;
+            font-size: .213333rem*2;
+            a{color:#87CEEB;}
+        }
+        .j-tishi{padding-top:.08rem*2; height: .4rem*2; color:red;font-size: .24rem*2;}
+        .j-regbtn{
+            margin-top:.4rem*2;
+            text-align: center;
+            input{
+                font-size: .4rem;
+                width: 100%;
+                height:.533333rem*2;;
+                color:#fff;
+                background-color:red;
+                border:none;
+                border-radius:.066667rem*2;
+            }
+       }
+    }
+}

@@ -1,0 +1,152 @@
+html,body {
+    height: 100%;
+    .search {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .search-top{
+            height: 0.613333rem*2;
+            background: rgba(213,206,206,.4);
+            display: flex;
+            align-items: center;
+            input{
+                height: 0.4rem*2;
+                width: 4.133333rem*2;
+                margin-left: .266667rem*2;
+                padding-left: 0.466667rem*2;
+                border-radius: 0.333333rem*2;
+                border: 0;
+                background: #fff;
+                font-size: 0.186667rem*2;
+                color: #000;
+            }
+            i{
+                position: absolute;
+                top: 0.133333rem*2;
+                left: 0.4rem*2;
+                line-height: 0.4rem*2;
+                font-size: 40px;
+                color: #9A9A9A;
+            }
+            .msg{
+                height: 0.4rem*2;
+                line-height: 0.4rem*2;
+                width: 0.626667rem*2;
+                span{
+                    display:block;
+                    line-height: 0.4rem*2;
+                    text-align: center;
+                    font-size: 40px;
+                    color: #fff;
+                }
+            }
+        }
+        .search-index{
+            display: flex;
+            flex-direction: column;
+            height: 14.78125rem*2;
+            width: 100%;
+            background: #000;
+            opacity: 0.9;
+            z-index: 10;
+            .search-hot{
+                border-bottom: .026667rem*2 solid #fff;
+                padding-bottom: 0.1875rem*2;
+                .search-hot-top{
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 0.1875rem*2 0.375rem*2 0.1875rem*2 0.375rem*2;
+                    .search-hot-close { 
+                        font-size:32px;
+                        color:#fff;
+                    }
+                    .search-hot-tit{
+                        font-size: 32px;
+                        color: #fff;
+                    }
+                }
+                .search-hot-list{
+                    display: flex;
+                    font-size: 40px;
+                    color: #fff;
+                    li{
+                        width: 2.0rem*2;
+                        text-align: center;
+                    }
+                }
+            }
+            .search-history{
+                width:100%;
+                .search-history-tit{
+                    display: block;
+                    font-size: 32px;
+                    color: #6C6C6C;
+                    margin: 0.1875rem*2 0 0.1875rem*2 0.375rem*2;
+                }
+                .search-history-list{
+                    li{
+                        font-size: 0.266667rem*2;
+                        margin-top: 0.1875rem*2;
+                        padding: 0 0 0.1875rem*2 0.5625rem*2;
+                        border-bottom: 0.013333rem*2 solid #fff;
+                        color: #fff;
+                    }
+                } 
+            }
+            .clearBtn{
+                border: 0.013333rem*2 solid #fff;
+                color: #fff;
+                font-size: 32px;
+                height: 0.65rem*2;
+                width: 1.6rem*2;
+                line-height: 0.65rem*2;
+                text-align: center;
+                margin: 0.133333rem*2 3.21875rem*2 0 3.21875rem*2;
+            }
+            .search_show_list{
+                background-color: black;
+                position:absolute;
+                top:1.3rem*2;
+                left:0;
+                right:0;
+                bottom:0;
+                z-index:100;
+                .show_ul{
+                    overflow-y:scroll;
+                }
+                .search_item{
+                    width:100%;
+                    height:1.413333rem*2;
+                    padding:.133333rem*2;
+                    overflow:hidden;
+                    .imgbox{
+                        width:1.28rem*2;
+                        height:1.146667rem*2;
+                        float:left;
+                        margin-right:0.133333rem*2;
+                        img{
+                            width:100%;
+                            height:100%;
+                        }
+                    }
+                    .directionbox,.pricebox{
+                        float:left;
+                        font-size:32px;
+                        width:2.666667rem*2;
+                        color:white;
+
+                    }
+                    .pricebox{
+                        color:red;
+                    }
+                    .directionbox{
+                        height:0.6rem*2;
+                        overflow:hidden;
+                        text-overflow:ellipsis;
+                    }
+                }
+            }
+
+        }
+    }
+}

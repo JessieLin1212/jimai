@@ -1,0 +1,268 @@
+#car{
+    .l-head{
+        width: 100%;
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        text-align: center;
+        box-shadow: 0 0.013333rem*2 0.08rem*2 #ccc;
+        background: #fff;
+        z-index: 10;
+        >h1{
+            width: 70%;
+            height: 0.6rem*2;
+            line-height: 0.6rem*2;
+            font-size: 0.253333rem*2;
+            font-weight: normal;
+            color: #322d2d;
+        }
+        >i{
+            display: inline-block;
+            width: 15%;
+            line-height: 0.6rem*2;
+            font-size: 0.293333rem*2;
+            color: #454545;
+            cursor: pointer;
+        }
+    }
+    .l-car-box{
+        background: #fff;
+        margin: 0.6rem*2 0 1.466667rem*2 0;
+        .l-carlist{
+            padding-left: 0.16rem*2;
+            >li{
+                display:flex;
+                align-items: center;
+                padding: 0.133333rem*2 0 0.133333rem*2;
+                border-bottom: 0.013333rem*2 solid #ececec;
+                position: relative;
+                .l-checkbox{
+                    width: 7.5%; 
+                }
+                .l-imgbox{
+                    >img{
+                        width: 1.28rem*2;
+                        height: 1.146667rem*2;
+                    }
+                }
+                .l-msgbox{
+                    margin-left: 4%;
+                    width: 58%;
+                    .l-title,.l-type{
+                        font-size: 0.213333rem*2;
+                        margin-top: 0.066667rem*2;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        padding-right: 0.4rem*2;
+                        color: #292c2e;
+                    }
+                    .l-type{
+                        font-size: 0.186667rem*2;
+                    }
+                    .l-l-msgbox-b{
+                        overflow: hidden;
+                        .l-pricebox{
+                            margin-top: 0.106667rem*2;
+                            font-size: 0.173333rem*2;
+                            color: #f24730;
+                            float: left;
+                            .l-price{
+                                font-size: 0.226667rem*2;
+                            }
+                        }
+                        .l-qtybox{
+                            float: right;
+                            padding-top: 0.08rem*2;
+                            .l-qty-less,.l-qty-more{
+                                float: left;
+                                width: 0.453333rem*2;
+                                height: 0.4rem*2;
+                                line-height: 0.333333rem*2;
+                                text-align: center;
+                                border: 0.013333rem*2 solid #ececec;
+                                color: #6c6e74;
+                                background: #fff;
+                                font-size: 0.24rem*2;
+                                cursor: pointer;
+                            }
+                            .l-qty-more{
+                                line-height: 0.373333rem*2;
+                            }
+                            #l-qty{
+                                width: 0.666667rem*2;
+                                height: 0.4rem*2;
+                                float: left;
+                                border: 0 none;
+                                border-bottom: 0.013333rem*2 solid #ececec;
+                                border-top: 0.013333rem*2 solid #ececec;
+                                font-size: 0.226667rem*2;
+                                text-align: center;
+                                color: #292c2e;
+                            }
+                        }
+                    }
+                }
+                .l-del{
+                    position: absolute;
+                    font-size: 0.24rem*2;
+                    top: 0.213333rem*2;
+                    right: 0.16rem*2;
+                    color: #a8a8af;
+                    cursor: pointer;
+                }
+            }
+        }
+        .l-paybox{
+            display: flex;
+            width: 100%;
+            height: 0.8rem*2;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            bottom: 0.666667rem*2;
+            background: #fff;
+            border-top: 0.013333rem*2 solid #ececec;
+            border-bottom: 0.013333rem*2 solid #ececec;
+            padding-left: 0.16rem*2;
+            padding-right: 0.16rem*2;
+            z-index: 10;
+            >.l-checkAllBox{
+                display: flex;
+                width: 0.8rem*2;
+                align-items: center;
+                label{
+                    font-size: 0.213333rem*2;
+                    padding-left: 0.106667rem*2;
+                    vertical-align: middle;
+                    cursor: pointer;
+                }
+            }
+            .l-totalbox{
+                padding-left: 0.4rem*2;
+                font-size: 0.2rem*2;
+                .l-total{
+                    display: inline-block;
+                    font-size: 0.226667rem*2;
+                    color: #f24730;
+                }
+            }
+            .l-check-out{
+                width: 1.386667rem*2;
+                height: 0.6rem*2;
+                line-height: 0.6rem*2;
+                text-align: center;
+                font-size: 0.213333rem*2;
+                background: #f24730;
+                color: #fff;
+                border: 0 none;
+                border-radius: 0.08rem*2;
+                cursor: pointer;
+            }
+        }
+
+        /*修改复选框样式*/
+        .l-check{
+            /*去除浏览器默认样式*/
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            /*自定义样式*/
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            width: 0.266667rem*2;
+            height: 0.266667rem*2;
+            border: 0.013333rem*2 solid #aaa;
+            outline: none;
+            cursor: pointer;
+            /*设置为圆形，看起来是个单选框*/
+            -webkit-border-radius: 0.266667rem*2;
+            -moz-border-radius: 0.266667rem*2;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        /*选中之后的样式*/
+        .l-check:after{
+            content: '';
+            position: absolute;
+            width: 0.16rem*2;
+            height: 0.16rem*2;
+            display: block;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            background: #f24730;
+            -webkit-border-radius: 0.16rem*2;
+            -moz-border-radius: 0.16rem*2;
+            border-radius: 0.16rem*2;
+            -webkit-transform: scale(0);
+            -moz-transform: scale(0);
+            transform: scale(0);
+        }
+        .l-check:checked:after{
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    .l-address{
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 30;
+        >.l-hint-box{
+            width: 3.6rem*2;
+            background: rgba(255,255,255,.95);
+            color: #424242;
+            border-radius: 0.173333rem*2;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            .l-hint-t{
+                padding: 0.2rem*2;
+                border-bottom: 0.013333rem*2 solid #ececec;
+                >p{
+                    font-size: 0.24rem*2;
+                    font-weight: bold;
+                    &.l-hint-msg{
+                        font-weight: normal;
+                        font-size: 0.186667rem*2;
+                        margin-top: 0.066667rem*2;
+                    }
+                }
+            }
+            .l-dtl-check{
+                display: flex;
+                >span{
+                    flex:1;
+                    line-height: 0.6rem*2;
+                    font-size: 0.226667rem*2;
+                    font-weight: bold;
+                    color: #007aff;
+                    cursor: pointer;
+                    &.l-toLogin{
+                        border-radius: 0 0 0.173333rem*2 0.173333rem*2;
+                    }
+                    &.l-hint-no{
+                        border-radius: 0 0 0 0.173333rem*2;
+                        border-right: 0.013333rem*2 solid #ececec;
+                    }
+                    &.l-toCar{
+                        border-radius: 0 0 0.173333rem*2 0;
+                    }
+                }
+            }
+        }
+    }
+}
